@@ -5,6 +5,8 @@ import { LoginDto } from "/src/models/login-dto.js";
  * Regular expression to validate email format
  */
 const emailReggex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+var notyf = new Notyf();
+
 
 /**
  * Initialize the login page
@@ -42,7 +44,13 @@ function login() {
       console.log(response);
     })
     .catch((error) => {
-      console.error(error);
+      console.log(error);
+      let messageError = "Error de autenticación";
+      if (error.responseJSON !== undefined) {
+        const response = error.responseJSON;
+          messageError = (response.code + " - " + response.message);
+      }
+      notyf.error(messageError);
     });
 }
 
