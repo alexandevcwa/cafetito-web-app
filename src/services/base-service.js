@@ -1,0 +1,1 @@
+export const BASE_URL = 'http://api1qa.alexandevcwa.tech/cafetito';

@@ -1,0 +1,51 @@
+<div
+  class="w-full h-screen flex justify-center items-center bg-gradient-to-br from-teal-900 via-cyan-900 to-sky-900"
+>
+  <div
+    class="w-full max-w-md bg-white/10 backdrop-blur-md rounded-2xl shadow-2xl p-8"
+  >
+    <h2
+      class="text-3xl font-extrabold text-white mb-8 text-center tracking-tight"
+    >
+      Cafetito
+    </h2>
+    <form class="space-y-6">
+      <div>
+        <label for="username" class="block text-sm font-medium text-white mb-1"
+          >Correo</label
+        >
+        <input
+          type="email"
+          name="username"
+          id="username"
+          class="w-full rounded-lg border-0 bg-white/20 text-white place-holder-gray-300 focus:ring-2 focus:ring-teal-500 focus:bg-white/30 transition p-3 border-none focus:outline-none transition duration-300"
+        />
+        <span
+          class="message__email text-sm text-rose-400 font-bold ml-2"
+        ></span>
+      </div>
+      <div>
+        <label for="password" class="block text-sm font-medium text-white mb-1"
+          >Correo</label
+        >
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="w-full rounded-lg border-0 bg-white/20 text-white place-holder-gray-300 focus:ring-2 focus:ring-teal-500 focus:bg-white/30 transition p-3 border-none focus:outline-none transition duration-300"
+        />
+        <span
+          class="message__password text-sm text-rose-400 font-bold ml-2"
+        ></span>
+      </div>
+      <button
+        id="login-button"
+        type="submit"
+        class="w-full py-3 rounded-lg bg-gradient-to-r from-sky-900 via-cyan-900 to-teal-900 text-white font-bold text-lg shadow-lg hover:from-teal-900 hover:to-sky-900 transition duration-400"
+      >
+        Iniciar Sesión
+      </button>
+    </form>
+  </div>
+</div>
+<script src="./src/pages/login/login.js"></script>
