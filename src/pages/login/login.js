@@ -1,5 +1,5 @@
-import { authenticate } from "../../services/auth-service";
-import { LoginDto } from "../../models/login-dto";
+import { authenticate } from "/src/services/auth-service.js";
+import { LoginDto } from "/src/models/login-dto.js";
 
 /**
  * Regular expression to validate email format
