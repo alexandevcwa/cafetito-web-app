@@ -7,7 +7,6 @@ import { LoginDto } from "/src/models/login-dto.js";
 const emailReggex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 var notyf = new Notyf();
 
-
 /**
  * Initialize the login page
  */
@@ -41,14 +40,18 @@ function login() {
   const loginDto = new LoginDto(email, password);
   authenticate(loginDto)
     .then((response) => {
-      console.log(response);
+      const jwt = response.token;
+      sessionStorage.setItem("jwt", jwt);
+      // Redirect to the home page after successful login
+      splash = true; //TODO: Solicionar el problema de la pantalla de carga
+      location.hash = "/home";
     })
     .catch((error) => {
-      console.log(error);
+      console.error("Error during login:", error);
       let messageError = "Error de autenticación";
       if (error.responseJSON !== undefined) {
         const response = error.responseJSON;
-          messageError = (response.code + " - " + response.message);
+        messageError = response.code + " - " + response.message;
       }
       notyf.error(messageError);
     });

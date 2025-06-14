@@ -7,9 +7,25 @@
  */
 import { router } from "./src/core/router.js";
 
-if(!location.hash){
-    location.hash = "#/";
+if (!location.hash) {
+  location.hash = "#/";
 }
 
-$(window).on("hashchange", router);
-$(document).ready(router);
+// Variable para controlar si se muestra la pantalla de carga al iniciar el enrutador
+var splash = false;
+
+/**
+ * Función para manejar el cambio de hash en la URL.
+ */
+$(window).on("hashchange", () => {
+  router(splash);
+  splash = false;
+});
+
+/**
+ * Función para mostrar la pantalla de carga al iniciar el enrutador.
+ */
+$(document).ready(() => {
+  router(splash);
+  splash = false;
+});

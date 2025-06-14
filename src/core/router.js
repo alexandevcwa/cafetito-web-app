@@ -1,41 +1,52 @@
 const routes = {
   "/": "./src/pages/home/home.html",
   "/login": "./src/pages/login/login.html",
-  "/home": "./src//pages/home/home.html",
+  "/home": "./src/pages/home/home.html",
+  "/not-found": "./src/pages/not-found/not-found.html", // Asegúrate de tener esta ruta
 };
 
-/**
- * Handles client-side routing for the application.
- *
- * This function determines the current route based on the URL hash,
- * checks for a valid JWT token in sessionStorage, and loads the appropriate
- * page into the #root element using jQuery's `.load()` method.
- *
- * - If the user is not authenticated (no JWT), it loads the login page.
- * - If the user is authenticated, it loads the requested page.
- * - If there is an error loading the page, it displays an error message.
- */
-export function router() {
+function loadPage(path, showLoading) {
+  const page = routes[path] || routes["/not-found"];
+  $("#root").load(page, function (response, status) {
+    if (status === "error") {
+      $("#root").html("<h1>Error al cargar la página</h1>");
+    }
 
-  const path = location.hash.slice(1) || "/home";
-  const page = routes[path];
+    if (showLoading) {
+      // Mostrar la pantalla de carga al menos 2 segundos o hasta que la página termine de cargar
+      $("#loading-screen").show();
+      $("#root").hide();
 
-  const jwt = sessionStorage.getItem("jwt");
+      const minLoadingTime = new Promise(resolve => setTimeout(resolve, 2000));
+      const pageInitPromise = typeof window.pageInt === "function" ? window.pageInt() : Promise.resolve();
 
-  if (!jwt) {
-    /*If no JWT token is found, redirect to the login page*/
-    $("#root").load(routes["/login"], function (response, status) {
-      if (status === "success") {
-        location.hash = "/login";
-      } else if (status === "error") {
-        $("#root").html("<h1>Error al cargar la página</h1>");
-      }
-    });
-  } else {
-    $("#root").load(page, function (response, status) {
-      if (status === "error") {
-        $("#root").html("<h1>Error al cargar la página</h1>");
-      }
+      Promise.all([minLoadingTime, pageInitPromise]).finally(() => {
+        $("#loading-screen").hide();
+        $("#root").show();
+      });
+    }
+  });
+}
+
+function showLoadingScreen() {
+  if (typeof window.pageInt === "function") {
+    window.pageInt().finally(() => {
+      $("#loading-screen").hide();
+      $("#root").show();
     });
   }
+}
+
+export function router(showLoading = false) {
+  console.log("Router initialized");
+  const path = location.hash.slice(1) || "/";
+  const jwt = sessionStorage.getItem("jwt");
+
+  if (!jwt && path !== "/login") {
+    location.hash = "/login";
+    loadPage("/login");
+    return;
+  }
+
+  loadPage(path,showLoading);
 }
