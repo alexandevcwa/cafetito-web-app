@@ -43,7 +43,7 @@ function login() {
       const jwt = response.token;
       sessionStorage.setItem("jwt", jwt);
       // Redirect to the home page after successful login
-      splash = true; //TODO: Solicionar el problema de la pantalla de carga
+      //splash = true; //TODO: Solicionar el problema de la pantalla de carga
       location.hash = "/home";
     })
     .catch((error) => {

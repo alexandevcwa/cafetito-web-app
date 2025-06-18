@@ -1,0 +1,42 @@
+<nav class="flex flex-col">
+  <div
+    class="bg-gradient-to-br from-teal-900 via-cyan-900 to-sky-900 flex items-center pl-2 h-12"
+  >
+    <!--  Menu Button -->
+    <div>
+      <button
+        id="menu-button"
+        type="button"
+        aria-label="Open menu"
+        class="hover:text-gray-800"
+      >
+        <i class="fa-solid fa-bars text-white text-3xl hover:text-cyan-100"></i>
+      </button>
+    </div>
+    <!-- Header -->
+    <div class="flex relative items-center">
+      <h1 class="text-white text-3xl ml-4 font-bold">
+        Cafetito <i class="fa-solid fa-mug-hot ml-2"></i>
+      </h1>
+    </div>
+  </div>
+  <!-- Menu -->
+  <div
+    id="menu-component"
+    class="absolute h-screen bg-red-300 w-xs px-2 bg-gradient-to-br from-teal-800 via-cyan-800 to-sky-800 hidden"
+  >
+    <div>
+      <div class="flex justify-between items-center h-12">
+        <span class="text-2xl font-bold text-white">Menu</span>
+        <button id="menu-close-button" type="button" aria-label="Menu">
+          <i class="fa-solid fa-xmark text-3xl mr-1 text-white"></i>
+        </button>
+      </div>
+      <ul id="menu-items" class="space-y-2"></ul>
+    </div>
+    <div>
+      <h1>sjsj</h1>
+    </div>
+  </div>
+</nav>
+<script type="module" src="./src/components/navbar/navbar.js"></script>
