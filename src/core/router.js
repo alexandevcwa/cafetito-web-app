@@ -38,15 +38,14 @@ function showLoadingScreen() {
 }
 
 export function router(showLoading = false) {
-  console.log("Router initialized");
   const path = location.hash.slice(1) || "/";
-  const jwt = sessionStorage.getItem("jwt");
+  // const jwt = sessionStorage.getItem("jwt");
 
-  if (!jwt && path !== "/login") {
-    location.hash = "/login";
-    loadPage("/login");
-    return;
-  }
+  // if (!jwt && path !== "/login") {
+  //   location.hash = "/login";
+  //   loadPage("/login");
+  //   return;
+  // }
 
   loadPage(path,showLoading);
 }
