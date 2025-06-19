@@ -16,7 +16,7 @@ $(document).ready(function () {
   const secondaryButton = buttonComponent({
     text: "Actualizar",
     type: "button",
-    color: "secondary",
+    color: "alert",
     icon: "update",
   })
   $("#secondary-button").append(secondaryButton);

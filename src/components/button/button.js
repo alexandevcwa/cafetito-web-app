@@ -4,10 +4,12 @@
 const buttonColorsClasses = {
   primary:
     "bg-sky-800 hover:bg-sky-900 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-200 min-w-[130px]",
+  secondary:
+    "bg-gray-700 text-white hover:bg-gray-800 px-4 py-2 rounded-lg shadow-md transition-all duration-200 min-w-[130px]",
   success:
     "bg-teal-800 text-white hover:bg-teal-900 px-4 py-2 rounded-lg shadow-md transition-all duration-200 min-w-[130px]",
-  secondary:
-    "bg-amber-500 hover:bg-amber-600 text-black px-4 py-2  shadow-md transition-all duration-200 min-w-[130px]",
+  alert:
+    "bg-amber-500 hover:bg-amber-600 text-black px-4 py-2 rounded-lg  shadow-md transition-all duration-200 min-w-[130px]",
   danger:
     "bg-rose-600 hover:bg-rose-700 text-white px-4 py-2 rounded-lg shadow-md transition-all duration-200 min-w-[130px]",
 };
