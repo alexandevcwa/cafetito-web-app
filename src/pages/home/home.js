@@ -1,5 +1,10 @@
 import { loadNavbarComponent } from "/src/components/navbar/navbar.js";
 import { buttonComponent } from "../../components/button/button.js";
+import {
+  buttonDropdownComponent,
+  ancoreDropdownComponent,
+  dropdownComponent,
+} from "../../components/dropdown/dropdown.js";
 
 $(document).ready(function () {
   loadNavbarComponent();
@@ -18,7 +23,7 @@ $(document).ready(function () {
     type: "button",
     color: "alert",
     icon: "update",
-  })
+  });
   $("#secondary-button").append(secondaryButton);
 
   const dangeButton = buttonComponent({
@@ -35,7 +40,7 @@ $(document).ready(function () {
     color: "success",
     icon: "confirm",
   });
-  $("#secondary-button").append(successButton); 
+  $("#secondary-button").append(successButton);
 
   const closeButton = buttonComponent({
     text: "Cerrar",
@@ -44,5 +49,14 @@ $(document).ready(function () {
     icon: "close",
   });
   $("#secondary-button").append(closeButton);
-  
+
+  const verDetalle = ancoreDropdownComponent({ text: "Ver Detalle" });
+  const desactivar = buttonDropdownComponent({ text: "Desactivar" });
+  const modificar = ancoreDropdownComponent({ text: "Modificar" });
+  const dropdown = dropdownComponent({
+    text: "Opciones 2",
+    icon: "fa-solid fa-caret-down",
+    content: [verDetalle, modificar, desactivar],
+  });
+  $(".dropdown-component").append(dropdown);
 });

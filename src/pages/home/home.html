@@ -8,16 +8,16 @@
   <body>
     <div id="navbar-component"></div>
     <div id="primary-button"></div>
-    <div id="secondary-button"></div>
+    <!-- <div id="secondary-button"></div> -->
 
-    <div class="dropdown border-1 border-gray-300 w-fit rounded-md">
+    <div class="dropdown border-1 border-gray-300 w-fit rounded-md ">
       <button
         class="dropdown-btn bg-gray-100 hover:bg-gray-200 transition-all duration-200 px-2 py-1 rounded-md shadown min-w-[130px] cursor-pointer"
       >
         Opciones<i class="fa-solid fa-caret-down ml-2"></i>
       </button>
       <div
-        class="dropdown-content bg-gray-200 w-fit flex flex-col rounded-md shadow min-w-[130px] hidden"
+        class="dropdown-content absolute bg-gray-100 w-fit flex flex-col rounded-md shadow min-w-[130px] hidden"
       >
         <a
           href=""
@@ -31,20 +31,8 @@
         </button>
       </div>
     </div>
-
-    <script>
-      $(".dropdown-btn").on("click", function () {
-        const $content = $(this).next(".dropdown-content");
-        if ($content.hasClass("hidden")) {
-          $content.removeClass("hidden").hide().slideDown(200);
-        } else {
-          $content.slideUp(200, function () {
-            $content.addClass("hidden");
-          });
-        }
-      });
-    </script>
-
+<div id="secondary-button"></div>
+<div class="dropdown-component"></div>
     <script type="module" src="./src/pages/home/home.js"></script>
   </body>
 </html>
