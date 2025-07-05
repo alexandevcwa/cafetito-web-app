@@ -11,21 +11,16 @@ if (!location.hash) {
   location.hash = "#/";
 }
 
-// Variable para controlar si se muestra la pantalla de carga al iniciar el enrutador
-var splash = false;
-
 /**
  * Función para manejar el cambio de hash en la URL.
  */
 $(window).on("hashchange", () => {
-  router(splash);
-  splash = false;
+  router();
 });
 
 /**
  * Función para mostrar la pantalla de carga al iniciar el enrutador.
  */
 $(document).ready(() => {
-  router(splash);
-  splash = false;
+  router();
 });

@@ -46,7 +46,6 @@ export function inputComponent({
  * @returns {void}
  */
 function validatePattenrn(validate, component, id, pattern, message) {
-  console.log("Validating pattern:", pattern);
   if (!validate || !pattern) {
     return;
   }

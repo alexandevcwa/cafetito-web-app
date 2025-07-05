@@ -8,8 +8,13 @@ import {
 
 import { inputComponent } from "../../components/input.js";
 
-$(document).ready(function () {
-  loadNavbarComponent();
+
+export function initHomePage(){
+  initUI();
+}
+
+function initUI() {
+  loadNavbarComponent('navbar-component');
 
   const saveButton = buttonComponent({
     text: "Guardar",
@@ -71,6 +76,5 @@ $(document).ready(function () {
     validate: true,
     errorMessage: "El formato del nombre de usuario es incorrecto",
   });
-
   $("#username").append(inUsername);
-});
+}

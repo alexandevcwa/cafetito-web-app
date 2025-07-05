@@ -1,41 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div id="navbar-component"></div>
-    <div id="primary-button"></div>
-    <!-- <div id="secondary-button"></div> -->
+<div id="navbar-component"></div>
+<div id="primary-button"></div>
 
-    <div class="dropdown border-1 border-gray-300 w-fit rounded-md">
-      <button
-        class="dropdown-btn bg-gray-100 hover:bg-gray-200 transition-all duration-200 px-2 py-1 rounded-md shadown min-w-[130px] cursor-pointer"
-      >
-        Opciones<i class="fa-solid fa-caret-down ml-2"></i>
-      </button>
-      <div
-        class="dropdown-content absolute bg-gray-100 w-fit flex flex-col rounded-md shadow min-w-[130px] hidden"
-      >
-        <a
-          href=""
-          class="pl-4 pr-2 text-gray-700 hover:bg-gray-300 transition-all duration-200"
-          >Modificar</a
-        >
-        <button
-          class="pl-4 text-gray-700 hover:bg-gray-300 transition-all duration-200 text-left cursor-pointer"
-        >
-          Desactivar
-        </button>
-      </div>
-    </div>
-    <div id="secondary-button"></div>
-    <div class="dropdown-component"></div>
-    <!-- Componentes In, usar ciclo for para agregar con diferentes ID -->
-    <div id="username"></div>
-    <!-- End -->
-    <script type="module" src="./src/pages/home/home.js"></script>
-  </body>
-</html>
+<div id="secondary-button"></div>
+<div class="dropdown-component"></div>
+<div id="username"></div>
+
+ <div id="content"></div>
+
+
+<script type="module">
+  import { initHomePage } from "/src/pages/home/home.js";
+  initHomePage();
+</script>

@@ -1,18 +1,14 @@
 /**
- * Carga el componente de la barra de navegación (navbar) en la página.
- * Utiliza jQuery para cargar el archivo HTML del navbar en el elemento <navbar-component>.
- * Una vez cargado, intenta inicializar el componente llamando a su método `initialize`.
- * Si el componente no se encuentra, muestra un error en la consola.
+ * Carga el componente de navegación en el elemento con el ID especificado.
+ * @param {*} id - El ID del elemento donde se cargará el componente de navegación. Por defecto es "navbar-component".
+ * @returns {void}
  */
-export function loadNavbarComponent() {
-  $("#navbar-component").load(
-    "./src/components/navbar.html",
-    function () {
-      initListeners();
-      initUI();
-      initValues();
-    }
-  );
+export function loadNavbarComponent(id = "navbar-component") {
+  $(`#${id}`).load("./src/components/navbar.html", function () {
+    initListeners();
+    initUI();
+    initValues();
+  });
 }
 
 const menuItems = [
@@ -48,12 +44,11 @@ const menuItems = [
   },
 ];
 
-
 /**
  * Inicializa los listeners de eventos para los botones del menú de navegación.
  */
 function initListeners() {
-  const $menu = $('#menu-component');
+  const $menu = $("#menu-component");
   $("#menu-button").on("click", () => {
     $menu.fadeToggle();
   });
@@ -70,9 +65,6 @@ function initUI() {
   menuItems.forEach((item) => {
     const li = createMenuLiItem(item.title, item.path);
     $("#menu-items").append(li);
-
-    
-
   });
 }
 

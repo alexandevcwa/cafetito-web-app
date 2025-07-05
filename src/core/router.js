@@ -17,8 +17,13 @@ function loadPage(path, showLoading) {
       $("#loading-screen").show();
       $("#root").hide();
 
-      const minLoadingTime = new Promise(resolve => setTimeout(resolve, 2000));
-      const pageInitPromise = typeof window.pageInt === "function" ? window.pageInt() : Promise.resolve();
+      const minLoadingTime = new Promise((resolve) =>
+        setTimeout(resolve, 2000)
+      );
+      const pageInitPromise =
+        typeof window.pageInt === "function"
+          ? window.pageInt()
+          : Promise.resolve();
 
       Promise.all([minLoadingTime, pageInitPromise]).finally(() => {
         $("#loading-screen").hide();
@@ -37,15 +42,19 @@ function showLoadingScreen() {
   }
 }
 
-export function router(showLoading = false) {
+/**
+ * Router function to handle navigation based on the current hash in the URL.
+ * @param {boolean} splash - If true, shows a loading screen before loading the page.
+ * @returns {void}
+ */
+export function router(splash = false) {
   const path = location.hash.slice(1) || "/";
-  // const jwt = sessionStorage.getItem("jwt");
+  const jwt = sessionStorage.getItem("jwt");
 
-  // if (!jwt && path !== "/login") {
-  //   location.hash = "/login";
-  //   loadPage("/login");
-  //   return;
-  // }
-
-  loadPage(path,showLoading);
+  if (!jwt && path !== "/login") {
+    location.hash = "/login";
+    loadPage("/login");
+    return;
+  }
+  loadPage(path, splash);
 }
