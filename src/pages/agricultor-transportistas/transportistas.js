@@ -8,6 +8,9 @@ function loadTransportistasPage(){
     });
 }
 
+functino loeadButtonComponents(){
+}
+
 function initListeners(){
 
 }

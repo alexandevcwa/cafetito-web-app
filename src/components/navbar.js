@@ -6,7 +6,7 @@
  */
 export function loadNavbarComponent() {
   $("#navbar-component").load(
-    "./src/components/navbar/navbar.html",
+    "./src/components/navbar.html",
     function () {
       initListeners();
       initUI();

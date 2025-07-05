@@ -1,10 +1,12 @@
-import { loadNavbarComponent } from "/src/components/navbar/navbar.js";
-import { buttonComponent } from "../../components/button/button.js";
+import { loadNavbarComponent } from "../../components/navbar.js";
+import { buttonComponent } from "../../components/button.js";
 import {
   buttonDropdownComponent,
   ancoreDropdownComponent,
   dropdownComponent,
-} from "../../components/dropdown/dropdown.js";
+} from "../../components/dropdown.js";
+
+import { inputComponent } from "../../components/input.js";
 
 $(document).ready(function () {
   loadNavbarComponent();
@@ -59,4 +61,16 @@ $(document).ready(function () {
     content: [verDetalle, modificar, desactivar],
   });
   $(".dropdown-component").append(dropdown);
+
+  const inUsername = inputComponent({
+    type: "email",
+    placeholder: "Ingrese su nombre de usuario",
+    label: "Nombre de Usuario",
+    id: "in-username",
+    pattern: "^[a-zA-Z0-9_]{3,15}$",
+    validate: true,
+    errorMessage: "El formato del nombre de usuario es incorrecto",
+  });
+
+  $("#username").append(inUsername);
 });
